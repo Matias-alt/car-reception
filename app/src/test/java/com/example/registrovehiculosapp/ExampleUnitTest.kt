@@ -1,4 +1,4 @@
-package com.example.carreceptionapp
+package com.example.registrovehiculosapp
 
 import org.junit.Test
 
