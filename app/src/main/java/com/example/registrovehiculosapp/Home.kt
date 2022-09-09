@@ -118,7 +118,7 @@ class Home : AppCompatActivity() {
     }
 
     private fun validateForm(): Boolean {
-        val entryDate = findViewById<TextView>(R.id.btn_home_entry_date).text;
+        val entryDate = findViewById<TextView>(R.id.txt_home_date).text;
         val kilometers = findViewById<TextView>(R.id.txt_home_kilometers).text;
         val name = findViewById<TextView>(R.id.txt_home_name).text;
         val rut = findViewById<TextView>(R.id.txt_home_rut).text;
