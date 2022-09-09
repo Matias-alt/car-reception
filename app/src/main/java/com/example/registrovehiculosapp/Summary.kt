@@ -25,8 +25,8 @@ class Summary : AppCompatActivity() {
             findViewById<TextView>(R.id.txt_summary_brand).text = "Marca: $brand"
             findViewById<TextView>(R.id.txt_summary_color).text = "Color: $color"
             findViewById<TextView>(R.id.txt_summary_entry_date).text = "Fecha de ingreso: $entryDate"
-            findViewById<TextView>(R.id.txt_summary_reason).text = "Kilometros: $reason"
-            findViewById<TextView>(R.id.txt_summary_kilometers).text = "Motivo: $kilometers"
+            findViewById<TextView>(R.id.txt_summary_reason).text = "Kilometros: $kilometers "
+            findViewById<TextView>(R.id.txt_summary_kilometers).text = "Motivo: $reason"
             findViewById<TextView>(R.id.txt_summary_name).text = "Nombre: $name"
             findViewById<TextView>(R.id.txt_summary_rut).text = "Rut: $rut"
         }

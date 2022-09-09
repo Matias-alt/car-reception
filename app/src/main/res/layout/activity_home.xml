@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="10dp"
         android:text="Seleccione marca"
         app:layout_constraintEnd_toStartOf="@+id/sp_home_brand"
@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="10dp"
         android:text="Seleccione color"
         app:layout_constraintEnd_toStartOf="@+id/sp_home_color"
@@ -98,56 +98,40 @@
         app:layout_constraintTop_toBottomOf="@+id/sp_home_brand"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <EditText
-        android:id="@+id/txt_home_entry_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="40dp"
-        android:ems="10"
-        android:hint="Seleccione fecha de ingreso"
-        android:inputType="date"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_home_color" />
-
     <TextView
         android:id="@+id/txt_km"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="10dp"
         android:text="Kilómetros"
         app:layout_constraintEnd_toStartOf="@+id/txt_home_kilometers"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_home_entry_date" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_home_entry_date" />
 
     <EditText
         android:id="@+id/txt_home_kilometers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="49dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_km"
-        app:layout_constraintTop_toBottomOf="@+id/txt_home_entry_date"
+        app:layout_constraintTop_toBottomOf="@+id/btn_home_entry_date"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/txt_motivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="52dp"
         android:text="Seleccione motivo"
         app:layout_constraintEnd_toStartOf="@+id/sp_home_reason"
         app:layout_constraintStart_toStartOf="parent"
@@ -211,9 +195,41 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="19dp"
         android:onClick="onSubmit"
-        android:text="Button"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="54dp" />
+        android:text="Guardar"
+        app:layout_constraintEnd_toStartOf="@+id/txt_home_patent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tittle" />
+
+    <Button
+        android:id="@+id/btn_home_entry_date"
+        android:layout_width="182dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="48dp"
+        android:backgroundTint="#FDFDFD"
+        android:onClick="datePicker"
+        android:text="Seleccione fecha de ingreso"
+        android:textColor="#6C6B6B"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/txt_home_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_home_color" />
+
+    <TextView
+        android:id="@+id/txt_home_date"
+        android:layout_width="76dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="77dp"
+        android:hint="__ /__ /__"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_home_entry_date"
+        app:layout_constraintTop_toBottomOf="@+id/sp_home_color" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

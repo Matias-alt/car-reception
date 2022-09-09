@@ -3,11 +3,18 @@ package com.example.registrovehiculosapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.view.View
 import android.widget.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Home : AppCompatActivity() {
+
+
+    var formatDate = SimpleDateFormat("dd MMMM YYYY", Locale.US)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -25,11 +32,29 @@ class Home : AppCompatActivity() {
         initReasonSpinner();
     }
 
+    fun datePicker(view:View){
+        findViewById<Button>(R.id.btn_home_entry_date).setOnClickListener(View.OnClickListener {
+            val getDate : Calendar = Calendar.getInstance()
+            val datepicker = DatePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
+
+                val selectDate : Calendar = Calendar.getInstance()
+                selectDate.set(Calendar.YEAR, i)
+                selectDate.set(Calendar.MONTH, i2)
+                selectDate.set(Calendar.DAY_OF_MONTH, i3)
+
+                val date: String = formatDate.format(selectDate.time)
+                findViewById<TextView>(R.id.txt_home_date).text = date
+
+            }, getDate.get(Calendar.YEAR), getDate.get(Calendar.MONTH), getDate.get(Calendar.DAY_OF_MONTH))
+            datepicker.show()
+        })
+    }
+
     fun onSubmit(view: View){
         var patent = findViewById<TextView>(R.id.txt_home_patent).text.toString();
         var brand = findViewById<Spinner>(R.id.sp_home_brand).selectedItem.toString();
         var color = findViewById<Spinner>(R.id.sp_home_color).selectedItem.toString();
-        var entryDate = findViewById<TextView>(R.id.txt_home_entry_date).text.toString();
+        var entryDate = findViewById<TextView>(R.id.txt_home_date).text.toString();
         var reason = findViewById<Spinner>(R.id.sp_home_reason).selectedItem.toString();
         var kilometers = findViewById<TextView>(R.id.txt_home_kilometers).text.toString();
         var name = findViewById<TextView>(R.id.txt_home_name).text.toString();
@@ -93,7 +118,7 @@ class Home : AppCompatActivity() {
     }
 
     private fun validateForm(): Boolean {
-        val entryDate = findViewById<TextView>(R.id.txt_home_entry_date).text;
+        val entryDate = findViewById<TextView>(R.id.btn_home_entry_date).text;
         val kilometers = findViewById<TextView>(R.id.txt_home_kilometers).text;
         val name = findViewById<TextView>(R.id.txt_home_name).text;
         val rut = findViewById<TextView>(R.id.txt_home_rut).text;
