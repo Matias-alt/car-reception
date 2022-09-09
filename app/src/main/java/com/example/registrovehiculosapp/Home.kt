@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.os.Build
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,7 +35,7 @@ class Home : AppCompatActivity() {
     fun datePicker(view:View){
         findViewById<Button>(R.id.btn_home_entry_date).setOnClickListener(View.OnClickListener {
             val getDate : Calendar = Calendar.getInstance()
-            val datepicker = DatePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
+            val datePicker = DatePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
 
                 val selectDate : Calendar = Calendar.getInstance()
                 selectDate.set(Calendar.YEAR, i)
@@ -44,7 +46,7 @@ class Home : AppCompatActivity() {
                 findViewById<TextView>(R.id.txt_home_date).text = date
 
             }, getDate.get(Calendar.YEAR), getDate.get(Calendar.MONTH), getDate.get(Calendar.DAY_OF_MONTH))
-            datepicker.show()
+            datePicker.show()
         })
     }
 

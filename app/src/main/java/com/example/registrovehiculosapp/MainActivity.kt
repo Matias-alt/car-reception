@@ -13,8 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun ingresar(view: View) {
-
+    fun login(view: View) {
         val mail =
             findViewById<EditText>(R.id.txt_mail).text.toString();
         val pass =
@@ -37,7 +36,5 @@ class MainActivity : AppCompatActivity() {
             )
             toast.show()
         }
-
-
     }
 }
