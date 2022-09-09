@@ -110,11 +110,7 @@ class Home : AppCompatActivity() {
         var spinner = findViewById<Spinner>(R.id.sp_home_reason);
         spinner.adapter = adapter;
 
-        if (reason.selectedItem.toString() == "Otro"){
-            otherReason.isEnabled = true;
-        }
-        else
-            otherReason.isEnabled = false;
+        otherReason.isEnabled = reason.selectedItem.toString() == "Otro";
     }
 
     private fun validateForm(): Boolean {
