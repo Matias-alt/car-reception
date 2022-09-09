@@ -101,7 +101,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="20dp"
-        android:text="Su vehiculo ha sido ingrersado correctamente, a continuacion se mostrara un resumen de la accion realizada"
+        android:text="Su vehiculo ha sido ingresado correctamente. A continuación se mostrará un resumen de la acción realizada"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

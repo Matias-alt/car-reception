@@ -11,8 +11,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class Home : AppCompatActivity() {
-
-
     var formatDate = SimpleDateFormat("dd MMMM YYYY", Locale.US)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,13 +54,16 @@ class Home : AppCompatActivity() {
         var color = findViewById<Spinner>(R.id.sp_home_color).selectedItem.toString();
         var entryDate = findViewById<TextView>(R.id.txt_home_date).text.toString();
         var reason = findViewById<Spinner>(R.id.sp_home_reason).selectedItem.toString();
+
+        if(reason == "Otro"){
+            reason = findViewById<TextView>(R.id.txt_home_other_reason).text.toString();
+        }
+
         var kilometers = findViewById<TextView>(R.id.txt_home_kilometers).text.toString();
         var name = findViewById<TextView>(R.id.txt_home_name).text.toString();
         var rut = findViewById<TextView>(R.id.txt_home_rut).text.toString();
 
-        val builder = AlertDialog.Builder(this)
         if(validateForm()){
-
             val bundle = Bundle();
             bundle.putString("patent", patent);
             bundle.putString("brand", brand);
