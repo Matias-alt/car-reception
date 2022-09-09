@@ -20,9 +20,9 @@ class Home : AppCompatActivity() {
             this.supportActionBar!!.title = "Bienvenido/a: " + mail;
         }
 
-        iniciarSpinnerMarca();
-        iniciarSpinnerColor();
-        iniciarSpinnerMotivo();
+        initBrandSpinner();
+        initColorSpinner();
+        initReasonSpinner();
     }
 
     fun onSubmit(view: View){
@@ -54,42 +54,42 @@ class Home : AppCompatActivity() {
         }
     }
 
-    private fun iniciarSpinnerMarca(){
-        var opciones = arrayOf("Chevrolet", "Audi", "Toyota", "Ford");
+    private fun initBrandSpinner(){
+        var options = arrayOf("Chevrolet", "Audi", "Toyota", "Ford");
 
-        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
+        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         var spinner = findViewById<Spinner>(R.id.sp_home_brand);
         spinner.adapter = adapter;
     }
 
-    private fun iniciarSpinnerColor(){
-        var opciones = arrayOf("Plateado", "Negro", "Rojo", "Azul");
+    private fun initColorSpinner(){
+        var options = arrayOf("Plateado", "Negro", "Rojo", "Azul");
 
-        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
+        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         var spinner = findViewById<Spinner>(R.id.sp_home_color);
         spinner.adapter = adapter;
     }
 
-    private fun iniciarSpinnerMotivo(){
-        var opciones = arrayOf("Servicio", "Mantención", "Otro");
-        var motivo = findViewById<Spinner>(R.id.sp_home_reason)
-        var otro_motivo = findViewById<TextView>(R.id.txt_home_other_reason)
+    private fun initReasonSpinner(){
+        var options = arrayOf("Servicio", "Mantención", "Otro");
+        var reason = findViewById<Spinner>(R.id.sp_home_reason)
+        var otherReason = findViewById<TextView>(R.id.txt_home_other_reason)
 
-        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
+        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         var spinner = findViewById<Spinner>(R.id.sp_home_reason);
         spinner.adapter = adapter;
 
-        if (motivo.selectedItem.toString() == "Otro"){
-            otro_motivo.isEnabled == true;
+        if (reason.selectedItem.toString() == "Otro"){
+            otherReason.isEnabled = true;
         }
         else
-            otro_motivo.isEnabled == false;
+            otherReason.isEnabled = false;
     }
 
     private fun validateForm(): Boolean {
