@@ -7,7 +7,7 @@
     tools:context=".Home">
 
     <EditText
-        android:id="@+id/txt_rut"
+        android:id="@+id/txt_home_rut"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_marginStart="45dp"
@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_name" />
 
     <TextView
         android:id="@+id/txt_tittle"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txt_patente"
+        android:id="@+id/txt_home_patent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_tittle" />
 
     <Spinner
-        android:id="@+id/sp_marca"
+        android:id="@+id/sp_home_brand"
         android:layout_width="207dp"
         android:layout_height="48dp"
         android:layout_marginStart="11dp"
@@ -59,7 +59,7 @@
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_spinner_marca"
-        app:layout_constraintTop_toBottomOf="@+id/txt_patente"
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_patent"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -70,9 +70,9 @@
         android:layout_marginTop="13dp"
         android:layout_marginEnd="10dp"
         android:text="Seleccione marca"
-        app:layout_constraintEnd_toStartOf="@+id/sp_marca"
+        app:layout_constraintEnd_toStartOf="@+id/sp_home_brand"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_patente" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_patent" />
 
     <TextView
         android:id="@+id/txt_spinner_color"
@@ -82,12 +82,12 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="10dp"
         android:text="Seleccione color"
-        app:layout_constraintEnd_toStartOf="@+id/sp_color"
+        app:layout_constraintEnd_toStartOf="@+id/sp_home_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_spinner_marca" />
 
     <Spinner
-        android:id="@+id/sp_color"
+        android:id="@+id/sp_home_color"
         android:layout_width="205dp"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
@@ -95,11 +95,11 @@
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_spinner_color"
-        app:layout_constraintTop_toBottomOf="@+id/sp_marca"
+        app:layout_constraintTop_toBottomOf="@+id/sp_home_brand"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/date_ingreso"
+        android:id="@+id/txt_home_entry_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -112,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_color" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_home_color" />
 
     <TextView
         android:id="@+id/txt_km"
@@ -122,13 +122,13 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="10dp"
         android:text="Kilómetros"
-        app:layout_constraintEnd_toStartOf="@+id/txt_number_km"
+        app:layout_constraintEnd_toStartOf="@+id/txt_home_kilometers"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_ingreso" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_entry_date" />
 
     <EditText
-        android:id="@+id/txt_number_km"
+        android:id="@+id/txt_home_kilometers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="49dp"
@@ -139,7 +139,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_km"
-        app:layout_constraintTop_toBottomOf="@+id/date_ingreso"
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_entry_date"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -149,12 +149,12 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="43dp"
         android:text="Seleccione motivo"
-        app:layout_constraintEnd_toStartOf="@+id/sp_motivo"
+        app:layout_constraintEnd_toStartOf="@+id/sp_home_reason"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_km" />
 
     <Spinner
-        android:id="@+id/sp_motivo"
+        android:id="@+id/sp_home_reason"
         android:layout_width="183dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
@@ -162,11 +162,11 @@
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_motivo"
-        app:layout_constraintTop_toBottomOf="@+id/txt_number_km"
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_kilometers"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/txt_motivo_otro"
+        android:id="@+id/txt_home_other_reason"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -178,10 +178,10 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_motivo" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_home_reason" />
 
     <EditText
-        android:id="@+id/txt_nombre"
+        android:id="@+id/txt_home_name"
         android:layout_width="325dp"
         android:layout_height="48dp"
         android:layout_marginStart="45dp"
@@ -192,7 +192,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_motivo_otro" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_other_reason" />
 
     <Button
         android:id="@+id/btn_submit"
@@ -205,6 +205,15 @@
         android:text="Guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_rut" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_rut" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSubmit"
+        android:text="Button"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="54dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
