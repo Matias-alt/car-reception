@@ -3,36 +3,40 @@ package com.example.registrovehiculosapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.app.AlertDialog
-import android.content.DialogInterface
+import android.content.Intent
 import android.view.View
 import android.widget.*
-import androidx.core.view.doOnAttach
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
         val extras = intent.extras;
         var mail = "";
-        var pass = "";
 
         if(extras != null) {
-
             mail = extras.getString("mail").toString();
             this.supportActionBar!!.title = "Bienvenido/a: " + mail;
         }
 
         iniciarSpinnerMarca();
         iniciarSpinnerColor();
-        iniciarSpinnerMotivo()
+        iniciarSpinnerMotivo();
     }
-    fun iniciarSpinnerMarca(){
+
+    fun onSubmit(view: View){
+        val builder = AlertDialog.Builder(this)
+        if(validateForm()){
+            val bundle = Bundle();
+            val intent = Intent(this, Summary::class.java);
+            intent.putExtras(bundle);
+
+            startActivity(intent);
+        }
+    }
+
+    private fun iniciarSpinnerMarca(){
         var opciones = arrayOf("Chevrolet", "Audi", "Toyota", "Ford");
 
         var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
@@ -42,7 +46,7 @@ class Home : AppCompatActivity() {
         spinner.adapter = adapter;
     }
 
-    fun iniciarSpinnerColor(){
+    private fun iniciarSpinnerColor(){
         var opciones = arrayOf("Plateado", "Negro", "Rojo", "Azul");
 
         var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
@@ -52,7 +56,7 @@ class Home : AppCompatActivity() {
         spinner.adapter = adapter;
     }
 
-    fun iniciarSpinnerMotivo(){
+    private fun iniciarSpinnerMotivo(){
         var opciones = arrayOf("Servicio", "Mantención", "Otro");
         var motivo = findViewById<Spinner>(R.id.sp_motivo)
         var otro_motivo = findViewById<TextView>(R.id.txt_motivo_otro)
@@ -70,7 +74,35 @@ class Home : AppCompatActivity() {
             otro_motivo.isEnabled == false;
     }
 
-    fun onSubmit(){
-        val builder = AlertDialog.Builder(this)
+    private fun validateForm(): Boolean {
+        val entryDate = findViewById<TextView>(R.id.date_ingreso).text;
+        val kilometers = findViewById<TextView>(R.id.txt_number_km).text;
+        val name = findViewById<TextView>(R.id.txt_nombre).text;
+        val rut = findViewById<TextView>(R.id.txt_rut).text;
+
+        if(entryDate.isEmpty()){
+            showDialog("Debe ingresar una fecha de ingreso")
+            return false
+        }
+        else if(kilometers.isEmpty()){
+            showDialog("Debe ingresar cantidad de kilometros")
+            return false
+        }
+        else if(name.isEmpty()){
+            showDialog("Debe ingresar su nombre")
+            return false
+        }
+        else if(rut.isEmpty()){
+            showDialog("Debe ingresar su rut")
+            return false
+        }
+
+        return true
+    }
+
+    private fun showDialog(text: String){
+        val toast = Toast.makeText(this, text,
+            Toast.LENGTH_LONG);
+        toast.show();
     }
 }

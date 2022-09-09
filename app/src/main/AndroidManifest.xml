@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RegistroVehiculosApp">
         <activity
-            android:name=".Registro"
+            android:name=".Summary"
             android:exported="false" />
         <activity
             android:name=".Home"
