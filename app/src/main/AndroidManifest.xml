@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RegistroVehiculosApp">
         <activity
+            android:name=".signin"
+            android:exported="false" />
+        <activity
+            android:name=".SignIn"
+            android:exported="false" />
+        <activity
+            android:name=".sing_in"
+            android:exported="false" />
+        <activity
             android:name=".Summary"
             android:exported="false"
             android:parentActivityName=".Home" />

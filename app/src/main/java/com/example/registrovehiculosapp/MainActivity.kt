@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        this.supportActionBar!!.title = "Registro Vehículos App"
     }
 
     fun login(view: View) {
@@ -36,5 +37,11 @@ class MainActivity : AppCompatActivity() {
             )
             toast.show()
         }
+    }
+
+
+    fun goSignIn(view:View){
+        val intent = Intent(this, signin::class.java);
+        startActivity(intent);
     }
 }
