@@ -54,6 +54,8 @@ class MainActivity : AppCompatActivity() {
                     runOnUiThread{
                         Toast.makeText(applicationContext, "Ingreso Exitoso", Toast.LENGTH_LONG).show();
                     }
+
+                    startActivity(intent);
                 }
 
                 if (respuesta.result[0].RESPUESTA == "LOGIN NOK"){
