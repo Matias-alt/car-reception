@@ -9,11 +9,17 @@ import android.os.Build
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
+import okhttp3.*
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
 class Home : AppCompatActivity() {
     var formatDate = SimpleDateFormat("dd MMMM YYYY", Locale.US)
+    val ruta: String = "https://www.fer-sepulveda.cl/API_PRUEBA2/api-service.php";
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,20 +58,63 @@ class Home : AppCompatActivity() {
     }
 
     fun onSubmit(view: View){
+        //Obtener variable mail
+        val extras = intent.extras;
+
+        val client = OkHttpClient();
+        val mediaType: MediaType? = MediaType.parse("application/json; charset=utf-8");
+
         var patent = findViewById<TextView>(R.id.txt_home_patent).text.toString();
         var brand = findViewById<Spinner>(R.id.sp_home_brand).selectedItem.toString();
         var color = findViewById<Spinner>(R.id.sp_home_color).selectedItem.toString();
         var entryDate = findViewById<TextView>(R.id.txt_home_date).text.toString();
-        var reason = findViewById<Spinner>(R.id.sp_home_reason).selectedItem.toString();
-
-        if(reason == "Otro"){
-            reason = findViewById<TextView>(R.id.txt_home_other_reason).text.toString();
-        }
-
         var kilometers = findViewById<TextView>(R.id.txt_home_kilometers).text.toString();
-        var name = findViewById<TextView>(R.id.txt_home_name).text.toString();
+        var reason = findViewById<Spinner>(R.id.sp_home_reason).selectedItem.toString();
+        var reasonText = findViewById<TextView>(R.id.txt_home_other_reason).text.toString();
         var rut = findViewById<TextView>(R.id.txt_home_rut).text.toString();
+        var name = findViewById<TextView>(R.id.txt_home_name).text.toString();
+        var mail = extras?.getString("mail").toString();
 
+        validateForm();
+
+        var json = "{\"nombreFuncion\":\"InspeccionAlmacenar\", \"parametros\": [\"" + patent + "\", \"" + brand + "\", \"" + color + "\", \"" + entryDate + "\", \"" + kilometers + "\", \"" + reason + "\", \"" + reasonText + "\", \"" + rut + "\", \"" + name + "\", \"" + mail + "\"]}"
+
+        val body: RequestBody = RequestBody.create(mediaType,json);
+        val request: Request = Request.Builder().url(ruta).post(body).build();
+
+        client.newCall(request).enqueue(object: Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                println("AVR: la petición post falló");
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                //println("AVR: " + response.body()?.string());
+                val jsonData = response.body()?.string()
+                val respuesta = Json.decodeFromString<Respuesta>(jsonData.toString())
+
+                println("AVR: " + respuesta.result[0].RESPUESTA)
+
+                if (respuesta.result[0].RESPUESTA == "OK"){
+                    runOnUiThread{
+                        Toast.makeText(applicationContext, "Inspección Creada", Toast.LENGTH_LONG).show();
+                    }
+                    val bundle = Bundle();
+                    bundle.putString("mail", mail);
+                    intent.putExtras(bundle);
+
+                    startActivity(intent);
+                }else{
+                    runOnUiThread{
+                        Toast.makeText(applicationContext, "Ups, algo ocurrió", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+            }
+        })
+
+
+
+        /*
         if(validateForm()){
             val bundle = Bundle();
             bundle.putString("patent", patent);
@@ -80,7 +129,7 @@ class Home : AppCompatActivity() {
             intent.putExtras(bundle);
 
             startActivity(intent);
-        }
+        }*/
     }
 
     private fun initBrandSpinner(){

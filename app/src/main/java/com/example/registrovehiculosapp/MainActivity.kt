@@ -46,25 +46,31 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 //println("AVR: " + response.body()?.string());
                 val jsonData = response.body()?.string()
-                val respuesta = Json.decodeFromString<Respuesta>(jsonData.toString())
+                val respuesta = Json.decodeFromString<RespuestaLogin>(jsonData.toString())
 
-                println("AVR: " + respuesta.result[0].RESPUESTA)
+                println("AVR: " + respuesta.result)
 
-                if (respuesta.result[0].RESPUESTA == "LOGIN OK"){
+
+                if (respuesta.result == "LOGIN OK"){
                     runOnUiThread{
                         Toast.makeText(applicationContext, "Ingreso Exitoso", Toast.LENGTH_LONG).show();
                     }
+                    val bundle = Bundle();
+                    bundle.putString("mail", mail);
+                    intent.putExtras(bundle);
 
                     startActivity(intent);
                 }
 
-                if (respuesta.result[0].RESPUESTA == "LOGIN NOK"){
+                if (respuesta.result == "LOGIN NOK"){
                     runOnUiThread{
                         Toast.makeText(applicationContext, "Ups, algo ocurrió", Toast.LENGTH_LONG).show()
                     }
                 }
             }
         })
+
+
     }
 
 
