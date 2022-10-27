@@ -82,54 +82,49 @@ class Home : AppCompatActivity() {
         val body: RequestBody = RequestBody.create(mediaType,json);
         val request: Request = Request.Builder().url(ruta).post(body).build();
 
-        client.newCall(request).enqueue(object: Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                println("AVR: la petición post falló");
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                //println("AVR: " + response.body()?.string());
-                val jsonData = response.body()?.string()
-                val respuesta = Json.decodeFromString<Respuesta>(jsonData.toString())
-
-                println("AVR: " + respuesta.result[0].RESPUESTA)
-
-                if (respuesta.result[0].RESPUESTA == "OK"){
-                    runOnUiThread{
-                        Toast.makeText(applicationContext, "Inspección Creada", Toast.LENGTH_LONG).show();
-                    }
-                    val bundle = Bundle();
-                    bundle.putString("mail", mail);
-                    intent.putExtras(bundle);
-
-                    startActivity(intent);
-                }else{
-                    runOnUiThread{
-                        Toast.makeText(applicationContext, "Ups, algo ocurrió", Toast.LENGTH_LONG).show()
-                    }
+        if(validateForm()) {
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    println("AVR: la petición post falló");
                 }
 
-            }
-        })
+                override fun onResponse(call: Call, response: Response) {
+                    //println("AVR: " + response.body()?.string());
+                    val jsonData = response.body()?.string()
+                    val respuesta = Json.decodeFromString<Respuesta>(jsonData.toString())
 
+                    println("AVR: " + respuesta.result[0].RESPUESTA)
+
+                    if (respuesta.result[0].RESPUESTA == "OK") {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                "Inspección Creada",
+                                Toast.LENGTH_LONG
+                            ).show();
+                        }
+                        val bundle = Bundle();
+                        bundle.putString("mail", mail);
+                        intent.putExtras(bundle);
+
+                        startActivity(intent);
+                    } else {
+                        runOnUiThread {
+                            Toast.makeText(
+                                applicationContext,
+                                "Ups, algo ocurrió",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+
+                }
+            })
+        }
 
 
         /*
-        if(validateForm()){
-            val bundle = Bundle();
-            bundle.putString("patent", patent);
-            bundle.putString("brand", brand);
-            bundle.putString("color", color);
-            bundle.putString("entryDate", entryDate);
-            bundle.putString("reason", reason);
-            bundle.putString("kilometers", kilometers);
-            bundle.putString("name", name);
-            bundle.putString("rut", rut);
-            val intent = Intent(this, Summary::class.java);
-            intent.putExtras(bundle);
-
-            startActivity(intent);
-        }*/
+        */
     }
 
     private fun initBrandSpinner(){
