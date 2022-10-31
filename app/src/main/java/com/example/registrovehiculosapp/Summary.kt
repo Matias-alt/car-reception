@@ -1,8 +1,12 @@
 package com.example.registrovehiculosapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
+import okhttp3.MediaType
+import okhttp3.OkHttpClient
 
 class Summary : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,5 +34,10 @@ class Summary : AppCompatActivity() {
             findViewById<TextView>(R.id.txt_summary_name).text = "Nombre: $name"
             findViewById<TextView>(R.id.txt_summary_rut).text = "Rut: $rut"
         }
+    }
+
+    fun listarInspecciones(view:View){
+        val intent = Intent(this, Inspecciones::class.java);
+        startActivity(intent)
     }
 }

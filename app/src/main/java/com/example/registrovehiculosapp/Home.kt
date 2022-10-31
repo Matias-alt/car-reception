@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class Home : AppCompatActivity() {
-    var formatDate = SimpleDateFormat("dd MMMM YYYY", Locale.US)
+    var formatDate = SimpleDateFormat("dd/MM/YYYY", Locale.US)
     val ruta: String = "https://www.fer-sepulveda.cl/API_PRUEBA2/api-service.php";
 
 
@@ -64,6 +64,7 @@ class Home : AppCompatActivity() {
         val client = OkHttpClient();
         val mediaType: MediaType? = MediaType.parse("application/json; charset=utf-8");
 
+        //Variables
         var patent = findViewById<TextView>(R.id.txt_home_patent).text.toString();
         var brand = findViewById<Spinner>(R.id.sp_home_brand).selectedItem.toString();
         var color = findViewById<Spinner>(R.id.sp_home_color).selectedItem.toString();
@@ -75,14 +76,13 @@ class Home : AppCompatActivity() {
         var name = findViewById<TextView>(R.id.txt_home_name).text.toString();
         var mail = extras?.getString("mail").toString();
 
-        validateForm();
-
         var json = "{\"nombreFuncion\":\"InspeccionAlmacenar\", \"parametros\": [\"" + patent + "\", \"" + brand + "\", \"" + color + "\", \"" + entryDate + "\", \"" + kilometers + "\", \"" + reason + "\", \"" + reasonText + "\", \"" + rut + "\", \"" + name + "\", \"" + mail + "\"]}"
 
         val body: RequestBody = RequestBody.create(mediaType,json);
         val request: Request = Request.Builder().url(ruta).post(body).build();
+        val intent = Intent(this, Summary::class.java);
 
-        if(validateForm()) {
+        if(validateForm()){
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     println("AVR: la petición post falló");
@@ -103,11 +103,19 @@ class Home : AppCompatActivity() {
                                 Toast.LENGTH_LONG
                             ).show();
                         }
+
                         val bundle = Bundle();
-                        bundle.putString("mail", mail);
+                        bundle.putString("patent", patent);
+                        bundle.putString("brand", brand);
+                        bundle.putString("color", color);
+                        bundle.putString("entryDate", entryDate);
+                        bundle.putString("reason", reason);
+                        bundle.putString("kilometers", kilometers);
+                        bundle.putString("name", name);
+                        bundle.putString("rut", rut);
                         intent.putExtras(bundle);
 
-                        startActivity(intent);
+                        startActivity(intent)
                     } else {
                         runOnUiThread {
                             Toast.makeText(
@@ -123,8 +131,6 @@ class Home : AppCompatActivity() {
         }
 
 
-        /*
-        */
     }
 
     private fun initBrandSpinner(){
