@@ -18,23 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         this.supportActionBar!!.title = "Registro Vehículos App"
-        val ruta1 = "https://fer-sepulveda.cl/API_PRUEBA2/api-service.php?nombreFuncion=InspeccionObtener"
-        val client = OkHttpClient();
-        val mediaType: MediaType? = MediaType.parse("application/json; charset=utf-8");
-
-        val request: Request = Request.Builder().url(ruta1).get().build();
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                println("AVR: la petición post falló");
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                val jsonData = response.body()?.string()
-                println("AVR: " + jsonData)
-
-            }
-        })
     }
 
     fun login(view: View) {
