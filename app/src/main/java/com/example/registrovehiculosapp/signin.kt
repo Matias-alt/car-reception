@@ -19,6 +19,10 @@ class signin : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
     }
+    fun goLogin(view: View){
+        val intent = Intent(this, MainActivity::class.java);
+        startActivity(intent);
+    }
 
     fun signIn(view: View) {
 
@@ -55,6 +59,7 @@ class signin : AppCompatActivity(){
                     runOnUiThread{
                         Toast.makeText(applicationContext, "Usuario Registrado correctamente", Toast.LENGTH_LONG).show();
                     }
+                    startActivity(intent);
                 }
 
                 if (respuesta.result[0].RESPUESTA == "ERR01"){
@@ -68,8 +73,5 @@ class signin : AppCompatActivity(){
     }
 
 
-    fun goLogin(view: View){
-        val intent = Intent(this, MainActivity::class.java);
-        startActivity(intent);
-    }
+
 }
