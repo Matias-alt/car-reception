@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        this.supportActionBar!!.title = "Registro Vehículos App"
+        this.supportActionBar!!.title = "Car Reception"
     }
 
     fun login(view: View) {
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val body: RequestBody = RequestBody.create(mediaType,json);
         val request: Request = Request.Builder().url(ruta).post(body).build();
 
-        val intent = Intent(this, Home::class.java);
+        val intent = Intent(this, Menu::class.java);
 
         client.newCall(request).enqueue(object: Callback {
             override fun onFailure(call: Call, e: IOException) {

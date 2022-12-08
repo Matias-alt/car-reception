@@ -24,7 +24,7 @@ class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        this.supportActionBar!!.title = "Home"
+        this.supportActionBar!!.title = "Ingresar nuevo registro"
 
         val extras = intent.extras;
         var mail = "";
@@ -153,7 +153,7 @@ class Home : AppCompatActivity() {
         spinner.adapter = adapter;
     }
 
-    private fun initReasonSpinner(){
+    private fun initReasonSpinner() {
         var options = arrayOf("Servicio", "Mantención", "Otro");
         var reason = findViewById<Spinner>(R.id.sp_home_reason)
         var otherReason = findViewById<TextView>(R.id.txt_home_other_reason)
@@ -164,7 +164,7 @@ class Home : AppCompatActivity() {
         var spinner = findViewById<Spinner>(R.id.sp_home_reason);
         spinner.adapter = adapter;
 
-        otherReason.isEnabled = reason.selectedItem.toString() == "Otro";
+        otherReason.isEnabled = reason.selectedItem == "Otro"
     }
 
     private fun validateForm(): Boolean {

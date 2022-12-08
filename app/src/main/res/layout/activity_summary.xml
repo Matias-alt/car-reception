@@ -101,7 +101,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="20dp"
-        android:text="Su vehiculo ha sido ingresado correctamente. A continuación se mostrará un resumen de la acción realizada"
+        android:text="El servicio ha sido creado exitosamente. A continuación se visualizará el detalle de la acción realizada:"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +115,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="10dp"
         android:onClick="listarInspecciones"
-        android:text="Listar Inspecciones"
+        android:text="Listar todos los registros"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_summary_rut" />

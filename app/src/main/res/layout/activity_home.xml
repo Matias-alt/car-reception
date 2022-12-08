@@ -13,11 +13,11 @@
 
     <EditText
         android:id="@+id/txt_home_rut"
-        android:layout_width="320dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Rut"
         android:inputType="textPersonName"
@@ -33,7 +33,7 @@
         android:layout_marginStart="113dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="113dp"
-        android:text="Ingrese los datos del vehículo"
+        android:text="Datos del Servicio"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,11 +41,11 @@
 
     <EditText
         android:id="@+id/txt_home_patent"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Patente"
         android:inputType="textPersonName"
@@ -57,7 +57,7 @@
 
     <Spinner
         android:id="@+id/sp_home_brand"
-        android:layout_width="207dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="11dp"
         android:layout_marginTop="12dp"
@@ -69,11 +69,10 @@
 
     <TextView
         android:id="@+id/txt_spinner_marca"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="10dp"
         android:text="Seleccione marca"
         app:layout_constraintEnd_toStartOf="@+id/sp_home_brand"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,11 +80,10 @@
 
     <TextView
         android:id="@+id/txt_spinner_color"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
         android:text="Seleccione color"
         app:layout_constraintEnd_toStartOf="@+id/sp_home_color"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +91,7 @@
 
     <Spinner
         android:id="@+id/sp_home_color"
-        android:layout_width="205dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
@@ -105,11 +103,10 @@
 
     <TextView
         android:id="@+id/txt_km"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="10dp"
         android:text="Kilómetros"
         app:layout_constraintEnd_toStartOf="@+id/txt_home_kilometers"
         app:layout_constraintHorizontal_bias="0.0"
@@ -120,7 +117,6 @@
         android:id="@+id/txt_home_kilometers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
@@ -133,9 +129,9 @@
 
     <TextView
         android:id="@+id/txt_motivo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="52dp"
         android:text="Seleccione motivo"
         app:layout_constraintEnd_toStartOf="@+id/sp_home_reason"
@@ -144,10 +140,10 @@
 
     <Spinner
         android:id="@+id/sp_home_reason"
-        android:layout_width="183dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_motivo"
@@ -156,11 +152,11 @@
 
     <EditText
         android:id="@+id/txt_home_other_reason"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="45dp"
         android:ems="10"
         android:hint="Otro motivo"
         android:inputType="textPersonName"
@@ -171,11 +167,11 @@
 
     <EditText
         android:id="@+id/txt_home_name"
-        android:layout_width="325dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="17dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="textPersonName"
@@ -214,11 +210,11 @@
 
     <TextView
         android:id="@+id/txt_home_date"
-        android:layout_width="152dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="13dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="40dp"
         android:hint="__ /__ /__"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"

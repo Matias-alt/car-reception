@@ -1,10 +1,7 @@
 package com.example.registrovehiculosapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
+import androidx.appcompat.app.AppCompatActivity
 import okhttp3.*
 import java.io.IOException
 
@@ -12,6 +9,7 @@ class Inspecciones : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inspecciones)
+        this.supportActionBar!!.title = "Inspecciones ingresadas"
 
         val ruta = "https://fer-sepulveda.cl/API_PRUEBA2/api-service.php?nombreFuncion=InspeccionObtener"
         val client = OkHttpClient();
@@ -27,7 +25,6 @@ class Inspecciones : AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 val jsonData = response.body()?.string()
                 println("AVR: " + jsonData)
-
             }
         })
     }

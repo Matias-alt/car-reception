@@ -12,6 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RegistroVehiculosApp">
         <activity
+            android:name=".RegistroAsistenciaQR"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Menu"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Inspecciones"
             android:exported="false" />
         <activity
@@ -35,5 +49,10 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
 </manifest>
