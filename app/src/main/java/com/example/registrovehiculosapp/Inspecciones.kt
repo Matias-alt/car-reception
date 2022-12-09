@@ -23,8 +23,8 @@ class Inspecciones : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                val jsonData = response.body()?.string()
-                println("AVR: " + jsonData)
+                var jsonData = response.body()?.string()
+                println("AVR" + jsonData)
             }
         })
     }

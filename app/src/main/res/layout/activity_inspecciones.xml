@@ -6,4 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".Inspecciones">
 
+    <TableRow
+        android:layout_width="409dp"
+        android:layout_height="227dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ID" />
+
+        <TextView
+            android:id="@+id/txt_patente"
+            android:layout_width="26dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Patente" />
+
+        <TextView
+            android:id="@+id/txt_marca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Marca" />
+
+        <TextView
+            android:id="@+id/txt_color"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:text="Color" />
+
+        <TextView
+            android:id="@+id/txt_fecha_ingreso"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fecha Ingreso" />
+
+        <TextView
+            android:id="@+id/txt_motivo_ingreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Motivo" />
+
+        <TextView
+            android:id="@+id/txt_rut_cliente"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rut " />
+    </TableRow>
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/txt_tittle_inspeccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="40dp"
+        android:text="Listado de Inspecciones"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

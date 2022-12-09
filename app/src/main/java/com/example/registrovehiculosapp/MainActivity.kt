@@ -76,4 +76,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, signin::class.java);
         startActivity(intent);
     }
+
+    fun goInspeccion(view: View){
+        val intent1 = Intent(this, Inspecciones::class.java)
+        startActivity(intent1)
+    }
 }

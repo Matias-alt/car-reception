@@ -1,8 +1,7 @@
 package com.example.registrovehiculosapp
 
-import kotlinx.serialization.Serializable
+import org.json.JSONArray
 
-@Serializable
 class RespuestaListar (
-    val result: List<MensajeListar>
+    val result: List<JSONArray>
 )

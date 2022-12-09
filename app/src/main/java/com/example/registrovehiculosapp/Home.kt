@@ -89,7 +89,7 @@ class Home : AppCompatActivity() {
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    //println("AVR: " + response.body()?.string());
+
                     val jsonData = response.body()?.string()
                     val respuesta = Json.decodeFromString<Respuesta>(jsonData.toString())
 
